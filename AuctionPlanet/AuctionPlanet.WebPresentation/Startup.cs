@@ -1,7 +1,8 @@
-﻿using Microsoft.Owin;
+﻿using AuctionPlanet.WebPresentation;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(AuctionPlanet.WebPresentation.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 namespace AuctionPlanet.WebPresentation
 {
     public partial class Startup
