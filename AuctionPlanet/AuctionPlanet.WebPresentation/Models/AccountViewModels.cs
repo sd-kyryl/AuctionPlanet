@@ -50,6 +50,10 @@ namespace AuctionPlanet.WebPresentation.Models
     public class LoginViewModel
     {
         [Required]
+        [Display(Name = "Full name")]
+        public string UserName { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
@@ -65,6 +69,10 @@ namespace AuctionPlanet.WebPresentation.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Full name")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

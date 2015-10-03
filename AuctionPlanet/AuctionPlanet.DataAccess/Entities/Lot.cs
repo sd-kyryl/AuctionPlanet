@@ -21,9 +21,7 @@ namespace AuctionPlanet.DataAccess.Entities
 
         public decimal CurrentPrice { get; set; }
 
-        public virtual AuctionUser OriginalOwner { get; set; }
-
-        public virtual AuctionUser NewOwner { get; set; }
+        public string OriginalOwner { get; set; }
 
         public LotStatus Status { get; set; }
     }

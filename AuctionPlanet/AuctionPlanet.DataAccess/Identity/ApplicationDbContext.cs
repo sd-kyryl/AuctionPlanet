@@ -6,9 +6,7 @@ namespace AuctionPlanet.DataAccess.Identity
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        private DbSet<Lot> PendingLots { get; set; }
-        private DbSet<Lot> AvailableLots { get; set; }
-        private DbSet<Lot> UnavailableLots { get; set; }
+        private DbSet<Lot> Lots { get; set; }
         private DbSet<AuctionUser> AuctionUsers { get; set; }
 
         public ApplicationDbContext()
@@ -20,5 +18,10 @@ namespace AuctionPlanet.DataAccess.Identity
         {
             return new ApplicationDbContext();
         }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+
+        //}
     }
 }

@@ -8,6 +8,7 @@ namespace AuctionPlanet.DataAccess.Entities
     {
         public Guid Id { get; set; }
 
+        public Guid ApplicationUserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public virtual ICollection<Lot> PublishedLots { get; set; }
