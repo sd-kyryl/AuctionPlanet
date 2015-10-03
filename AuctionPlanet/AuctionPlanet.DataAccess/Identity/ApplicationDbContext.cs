@@ -6,8 +6,8 @@ namespace AuctionPlanet.DataAccess.Identity
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        private DbSet<Lot> Lots { get; set; }
-        private DbSet<AuctionUser> AuctionUsers { get; set; }
+        public DbSet<Lot> Lots { get; set; }
+        public DbSet<AuctionUser> AuctionUsers { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -247,6 +247,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuctionPlanet.BusinessLogic\AuctionPlanet.BusinessLogic.csproj">
+      <Project>{ec457e72-02a0-4eaf-a700-ff2f7ba32d05}</Project>
+      <Name>AuctionPlanet.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AuctionPlanet.DataAccess\AuctionPlanet.DataAccess.csproj">
       <Project>{68880443-1b25-4529-89d8-e663163a4223}</Project>
       <Name>AuctionPlanet.DataAccess</Name>

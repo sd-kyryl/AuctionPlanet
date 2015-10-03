@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionPlanet.WebPresentati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionPlanet.DataAccess", "AuctionPlanet.DataAccess\AuctionPlanet.DataAccess.csproj", "{68880443-1B25-4529-89D8-E663163A4223}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionPlanet.BusinessLogic", "AuctionPlanet.BusinessLogic\AuctionPlanet.BusinessLogic.csproj", "{EC457E72-02A0-4EAF-A700-FF2F7BA32D05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68880443-1B25-4529-89D8-E663163A4223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68880443-1B25-4529-89D8-E663163A4223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68880443-1B25-4529-89D8-E663163A4223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC457E72-02A0-4EAF-A700-FF2F7BA32D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC457E72-02A0-4EAF-A700-FF2F7BA32D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC457E72-02A0-4EAF-A700-FF2F7BA32D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC457E72-02A0-4EAF-A700-FF2F7BA32D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
