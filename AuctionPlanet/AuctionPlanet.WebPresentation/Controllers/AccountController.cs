@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -155,6 +156,13 @@ namespace AuctionPlanet.WebPresentation.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    IdentityResult roleAdditionIdentityResult = await UserManager.AddToRoleAsync(user.Id, "user");
+
+                    if (!roleAdditionIdentityResult.Succeeded)
+                    {
+                        throw new Exception("Addition of a role failed");
+                    }
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

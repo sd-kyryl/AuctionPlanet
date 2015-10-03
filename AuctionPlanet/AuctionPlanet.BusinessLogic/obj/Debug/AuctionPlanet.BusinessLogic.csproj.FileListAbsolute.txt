@@ -1,0 +1,16 @@
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AuctionPlanet.BusinessLogic.dll.config
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AuctionPlanet.BusinessLogic.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AuctionPlanet.BusinessLogic.pdb
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AuctionPlanet.DataAccess.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AuctionPlanet.DataAccess.pdb
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.pdb

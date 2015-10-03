@@ -69,3 +69,5 @@ D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\Microso
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\obj\Debug\AuctionPlanet.WebPresentation.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\obj\Debug\AuctionPlanet.WebPresentation.dll
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\obj\Debug\AuctionPlanet.WebPresentation.pdb
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AuctionPlanet.BusinessLogic.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AuctionPlanet.BusinessLogic.pdb
