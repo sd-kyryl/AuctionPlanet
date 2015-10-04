@@ -20,8 +20,10 @@ namespace AuctionPlanet.DataAccess.Entities
         public decimal StartPrice { get; set; }
 
         public decimal CurrentPrice { get; set; }
-
+        
         public string OriginalOwner { get; set; }
+        
+        public string CurrentBidder { get; set; }
 
         public LotStatus Status { get; set; }
     }

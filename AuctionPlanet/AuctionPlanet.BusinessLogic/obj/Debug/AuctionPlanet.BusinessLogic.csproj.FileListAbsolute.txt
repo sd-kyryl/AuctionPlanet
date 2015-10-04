@@ -14,3 +14,5 @@ D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\Mic
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.dll
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\obj\Debug\AuctionPlanet.BusinessLogic.pdb
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AutoMapper.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.BusinessLogic\bin\Debug\AutoMapper.xml

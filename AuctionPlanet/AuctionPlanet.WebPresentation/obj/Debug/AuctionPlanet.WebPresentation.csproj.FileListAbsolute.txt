@@ -71,3 +71,5 @@ D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\obj\Debug\A
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\obj\Debug\AuctionPlanet.WebPresentation.pdb
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AuctionPlanet.BusinessLogic.dll
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AuctionPlanet.BusinessLogic.pdb
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AutoMapper.dll
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.WebPresentation\bin\AutoMapper.xml

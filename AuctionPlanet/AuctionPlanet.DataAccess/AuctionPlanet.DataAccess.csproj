@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201510031557494_RemovedUserReferencesFromLots.Designer.cs">
       <DependentUpon>201510031557494_RemovedUserReferencesFromLots.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510041311237_AddedBanFlagAndUserStringInfo.cs" />
+    <Compile Include="Migrations\201510041311237_AddedBanFlagAndUserStringInfo.Designer.cs">
+      <DependentUpon>201510041311237_AddedBanFlagAndUserStringInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\LotStatus.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510031557494_RemovedUserReferencesFromLots.resx">
       <DependentUpon>201510031557494_RemovedUserReferencesFromLots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510041311237_AddedBanFlagAndUserStringInfo.resx">
+      <DependentUpon>201510041311237_AddedBanFlagAndUserStringInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
