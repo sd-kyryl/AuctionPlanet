@@ -13,9 +13,9 @@ namespace AuctionPlanet.DataAccess.Entities
 
         public string ImageUrl { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public long Duration { get; set; }
 
         public decimal StartPrice { get; set; }
 

@@ -13,9 +13,9 @@ namespace AuctionPlanet.WebPresentation.Models
 
         public string ImageUrl { get; set; }
 
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public TimeSpan Duration { get; set; }
 
         public decimal StartPrice { get; set; }
 

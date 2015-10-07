@@ -20,6 +20,7 @@ namespace AuctionPlanet.BusinessLogic.Services
         public void CreateLot(LotInfo lotInfo)
         {
             _database.Lots.Create(Map<Lot>(lotInfo));
+            _database.Save();
         }
 
         public LotInfo GetLotInfo(Guid id)
@@ -32,14 +33,13 @@ namespace AuctionPlanet.BusinessLogic.Services
             return Map<IEnumerable<LotInfo>>(_database.Lots.GetAll());
         }
 
-        public void ApproveALot(Guid id, TimeSpan timeSpan)
+        public void ApproveALot(Guid id)
         {
             Lot lot = _database.Lots.Get(id);
             lot.StartTime = DateTime.Now;
-            lot.EndTime = lot.StartTime.Add(timeSpan);
             lot.Status = LotStatus.Available;
-            lot.CurrentPrice = lot.StartPrice;
             _database.Lots.Update(lot);
+            _database.Save();
         }
 
         public IEnumerable<LotInfo> GetPendingLots()
@@ -63,6 +63,7 @@ namespace AuctionPlanet.BusinessLogic.Services
             lot.CurrentPrice = newPrice;
             lot.CurrentBidder = newBidder;
             _database.Lots.Update(lot);
+            _database.Save();
         }
 
         public IEnumerable<LotInfo> SearchLotInfos(string searchQuery)

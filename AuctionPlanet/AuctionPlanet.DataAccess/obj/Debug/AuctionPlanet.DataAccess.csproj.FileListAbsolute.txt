@@ -16,3 +16,6 @@ D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\Auctio
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.csproj.GenerateResource.Cache
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.Migrations.RemovedUserReferencesFromLots.resources
 D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.Migrations.AddedBanFlagAndUserStringInfo.resources
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.Migrations.ReplacedEndTimeWithDuration.resources
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.Migrations.ChangeOfDuration.resources
+D:\Documents\GitHub\Epam\AuctionPlanet\AuctionPlanet.DataAccess\obj\Debug\AuctionPlanet.DataAccess.Migrations.MadeStartTimeNullable.resources

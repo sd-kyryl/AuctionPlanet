@@ -11,7 +11,7 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
         LotInfo GetLotInfo(Guid id);
         IEnumerable<LotInfo> GetLotInfos();
 
-        void ApproveALot(Guid id, TimeSpan timeSpan);
+        void ApproveALot(Guid id);
         IEnumerable<LotInfo> GetPendingLots();
         IEnumerable<LotInfo> GetAvailableLots();
         IEnumerable<LotInfo> GetSoldLots();

@@ -73,6 +73,18 @@
     <Compile Include="Migrations\201510041311237_AddedBanFlagAndUserStringInfo.Designer.cs">
       <DependentUpon>201510041311237_AddedBanFlagAndUserStringInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510062135102_ReplacedEndTimeWithDuration.cs" />
+    <Compile Include="Migrations\201510062135102_ReplacedEndTimeWithDuration.Designer.cs">
+      <DependentUpon>201510062135102_ReplacedEndTimeWithDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510071710092_ChangeOfDuration.cs" />
+    <Compile Include="Migrations\201510071710092_ChangeOfDuration.Designer.cs">
+      <DependentUpon>201510071710092_ChangeOfDuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510071755491_MadeStartTimeNullable.cs" />
+    <Compile Include="Migrations\201510071755491_MadeStartTimeNullable.Designer.cs">
+      <DependentUpon>201510071755491_MadeStartTimeNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\LotStatus.cs" />
@@ -90,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510041311237_AddedBanFlagAndUserStringInfo.resx">
       <DependentUpon>201510041311237_AddedBanFlagAndUserStringInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510062135102_ReplacedEndTimeWithDuration.resx">
+      <DependentUpon>201510062135102_ReplacedEndTimeWithDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510071710092_ChangeOfDuration.resx">
+      <DependentUpon>201510071710092_ChangeOfDuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510071755491_MadeStartTimeNullable.resx">
+      <DependentUpon>201510071755491_MadeStartTimeNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
