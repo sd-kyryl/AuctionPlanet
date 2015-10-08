@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AuctionPlanet.BusinessLogic.DataTransferObjects;
+using AuctionPlanet.BusinessLogic.Exceptions;
 using AuctionPlanet.BusinessLogic.Interfaces;
 using AuctionPlanet.DataAccess.Entities;
 using AuctionPlanet.DataAccess.Utility;
@@ -36,6 +37,12 @@ namespace AuctionPlanet.BusinessLogic.Services
         public void ApproveALot(Guid id)
         {
             Lot lot = _database.Lots.Get(id);
+
+            if (lot.Status != LotStatus.PendingApproval)
+            {
+                throw new UnavailableServiceActionException();
+            }
+
             lot.StartTime = DateTime.Now;
             lot.Status = LotStatus.Available;
             _database.Lots.Update(lot);
@@ -49,7 +56,8 @@ namespace AuctionPlanet.BusinessLogic.Services
 
         public IEnumerable<LotInfo> GetAvailableLots()
         {
-            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Available));
+            IEnumerable<Lot> lots = _database.Lots.Find(lot => lot.Status == LotStatus.Available);
+            return Map<IEnumerable<LotInfo>>(lots);
         }
 
         public IEnumerable<LotInfo> GetSoldLots()
@@ -60,16 +68,29 @@ namespace AuctionPlanet.BusinessLogic.Services
         public void BidOnALot(Guid id, decimal newPrice, string newBidder)
         {
             Lot lot = _database.Lots.Get(id);
+
+            if (lot.Status != LotStatus.Available)
+            {
+                throw new UnavailableServiceActionException();
+            }
+
             lot.CurrentPrice = newPrice;
             lot.CurrentBidder = newBidder;
             _database.Lots.Update(lot);
             _database.Save();
         }
 
+        public void DisposeOfExpiredLots()
+        {
+            IEnumerable<Lot> lots = _database.Lots.Find(lot => lot.Status == LotStatus.Available);
+        }
+
         public IEnumerable<LotInfo> SearchLotInfos(string searchQuery)
         {
-            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Title.Contains(searchQuery)));
+            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Available && lot.Title.Contains(searchQuery)));
         }
+
+
 
         public void Dispose()
         {

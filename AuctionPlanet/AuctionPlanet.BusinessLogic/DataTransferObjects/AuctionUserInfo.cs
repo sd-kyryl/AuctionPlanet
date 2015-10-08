@@ -1,7 +1,7 @@
-﻿using AuctionPlanet.DataAccess.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AuctionPlanet.DataAccess.Entities;
+using AuctionPlanet.DataAccess.Identity;
 
 namespace AuctionPlanet.BusinessLogic.DataTransferObjects
 {

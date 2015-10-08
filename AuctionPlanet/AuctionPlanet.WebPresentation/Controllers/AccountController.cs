@@ -3,11 +3,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AuctionPlanet.DataAccess.Identity;
 using AuctionPlanet.WebPresentation.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using AuctionPlanet.DataAccess.Identity;
+
 // ReSharper disable RedundantAnonymousTypePropertyName
 
 namespace AuctionPlanet.WebPresentation.Controllers

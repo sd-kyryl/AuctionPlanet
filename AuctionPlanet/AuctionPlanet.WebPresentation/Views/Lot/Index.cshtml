@@ -1,0 +1,77 @@
+﻿@model IEnumerable<AuctionPlanet.WebPresentation.Models.LotViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Published By
+        </th>
+        <th>
+            Current Bidder
+        </th>
+        <th>
+            Current Price
+        </th>
+        <th>
+            Time Left
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img alt="@item.Title" src="@item.ImageUrl"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentBidder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentPrice)
+        </td>
+        <td>
+            @{
+                string timeLeft = "";
+
+                if (item.StartTime != null)
+                {
+                    timeLeft = (item.StartTime.Value.Add(item.Duration) - DateTime.Now).ToString();
+                }
+            }
+            @Html.DisplayFor(modelItem => timeLeft)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new {id = item.Id})
+        </td>
+    </tr>
+}
+
+</table>

@@ -32,4 +32,18 @@
         </p>
     </div>*@
 </div>
-@Html.ActionLink("Create a lot", "Create", "LotViewModel")
+<ul>
+    @if (User.IsInRole("admin"))
+    {
+        <li>
+            @Html.ActionLink("View pending lots", "PendingLots", "Lot")
+        </li>
+    }
+    <li>
+        @Html.ActionLink("View the lots", "Index", "Lot")
+    </li>
+    <li>
+        @Html.ActionLink("Create a lot", "Create", "Lot")
+    </li>
+</ul>
+

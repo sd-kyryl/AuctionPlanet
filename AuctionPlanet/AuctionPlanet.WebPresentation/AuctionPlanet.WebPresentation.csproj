@@ -174,13 +174,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LotViewModelController.cs" />
+    <Compile Include="Controllers\LotController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AuctionUserViewModel.cs" />
+    <Compile Include="Models\BidViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LotViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -242,11 +243,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\LotViewModel\Create.cshtml" />
-    <Content Include="Views\LotViewModel\Delete.cshtml" />
-    <Content Include="Views\LotViewModel\Details.cshtml" />
-    <Content Include="Views\LotViewModel\Edit.cshtml" />
-    <Content Include="Views\LotViewModel\Index.cshtml" />
+    <Content Include="Views\Lot\Create.cshtml" />
+    <Content Include="Views\Lot\Delete.cshtml" />
+    <Content Include="Views\Lot\Details.cshtml" />
+    <Content Include="Views\Lot\Edit.cshtml" />
+    <Content Include="Views\Lot\Index.cshtml" />
+    <Content Include="Views\Shared\UnauthorizedAccess.cshtml" />
+    <Content Include="Views\Lot\Bid.cshtml" />
+    <Content Include="Views\Lot\PendingLots.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

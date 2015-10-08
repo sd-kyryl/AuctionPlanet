@@ -19,7 +19,7 @@ namespace AuctionPlanet.BusinessLogic.Repositories
 
         public IEnumerable<Lot> GetAll()
         {
-            return _context.Lots;
+            return _context.Lots.ToList();
         }
 
         public Lot Get(Guid id)

@@ -6,18 +6,17 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
 {
     public interface ILotService
     {
-        void CreateLot(LotInfo lotInfo);
-
         LotInfo GetLotInfo(Guid id);
         IEnumerable<LotInfo> GetLotInfos();
-
-        void ApproveALot(Guid id);
         IEnumerable<LotInfo> GetPendingLots();
         IEnumerable<LotInfo> GetAvailableLots();
         IEnumerable<LotInfo> GetSoldLots();
-
-        void BidOnALot(Guid id, decimal newPrice, string newBidder);
         IEnumerable<LotInfo> SearchLotInfos(string searchQuery);
+
+        void CreateLot(LotInfo lotInfo);
+        void ApproveALot(Guid id);
+        void BidOnALot(Guid id, decimal newPrice, string newBidder);
+        void DisposeOfExpiredLots();
         void Dispose();
     }
 }
