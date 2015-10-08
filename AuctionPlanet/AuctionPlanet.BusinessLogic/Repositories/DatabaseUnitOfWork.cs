@@ -9,7 +9,6 @@ namespace AuctionPlanet.BusinessLogic.Repositories
     {
         private readonly ApplicationDbContext _context;
         private LotRepository _lotRepository;
-        private AuctionUserRepository _auctionUserRepository;
         private bool _disposed;
 
         public DatabaseUnitOfWork()
@@ -18,9 +17,6 @@ namespace AuctionPlanet.BusinessLogic.Repositories
         }
 
         public IRepository<Lot> Lots => _lotRepository ?? (_lotRepository = new LotRepository(_context));
-
-        public IRepository<AuctionUser> AuctionUsers
-            => _auctionUserRepository ?? (_auctionUserRepository = new AuctionUserRepository(_context));
 
         public void Save()
         {

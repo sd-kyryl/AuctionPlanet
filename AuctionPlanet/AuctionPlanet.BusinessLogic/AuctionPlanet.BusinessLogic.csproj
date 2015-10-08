@@ -61,14 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTransferObjects\AuctionUserInfo.cs" />
     <Compile Include="DataTransferObjects\LotInfo.cs" />
     <Compile Include="Exceptions\UnavailableServiceActionException.cs" />
     <Compile Include="Interfaces\ILotService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AuctionUserRepository.cs" />
     <Compile Include="Repositories\DatabaseUnitOfWork.cs" />
     <Compile Include="Repositories\LotRepository.cs" />
     <Compile Include="Services\LotService.cs" />

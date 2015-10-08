@@ -180,7 +180,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AuctionUserViewModel.cs" />
     <Compile Include="Models\BidViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LotViewModel.cs" />
@@ -251,6 +250,7 @@
     <Content Include="Views\Shared\UnauthorizedAccess.cshtml" />
     <Content Include="Views\Lot\Bid.cshtml" />
     <Content Include="Views\Lot\PendingLots.cshtml" />
+    <Content Include="Views\Shared\UnavailableOperation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

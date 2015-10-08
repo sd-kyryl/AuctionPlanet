@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201510071755491_MadeStartTimeNullable.Designer.cs">
       <DependentUpon>201510071755491_MadeStartTimeNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510081707252_RemovedAuctionUsersTable.cs" />
+    <Compile Include="Migrations\201510081707252_RemovedAuctionUsersTable.Designer.cs">
+      <DependentUpon>201510081707252_RemovedAuctionUsersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\LotStatus.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510071755491_MadeStartTimeNullable.resx">
       <DependentUpon>201510071755491_MadeStartTimeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510081707252_RemovedAuctionUsersTable.resx">
+      <DependentUpon>201510081707252_RemovedAuctionUsersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

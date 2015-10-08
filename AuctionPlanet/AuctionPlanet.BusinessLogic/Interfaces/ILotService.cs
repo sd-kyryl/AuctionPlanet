@@ -10,6 +10,7 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
         IEnumerable<LotInfo> GetLotInfos();
         IEnumerable<LotInfo> GetPendingLots();
         IEnumerable<LotInfo> GetAvailableLots();
+        IEnumerable<LotInfo> GetExpiredLots();
         IEnumerable<LotInfo> GetSoldLots();
         IEnumerable<LotInfo> SearchLotInfos(string searchQuery);
 

@@ -26,6 +26,7 @@ namespace AuctionPlanet.WebPresentation.Controllers
         // GET: LotViewModel
         public ActionResult Index()
         {
+            _lotService.DisposeOfExpiredLots();
             return View(Map<IEnumerable<LotViewModel>>(_lotService.GetAvailableLots()));
         }
 
@@ -41,6 +42,13 @@ namespace AuctionPlanet.WebPresentation.Controllers
             if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
 
             return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetSoldLots()));
+        }
+
+        public ActionResult ExpiredLots()
+        {
+            if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
+
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetExpiredLots()));
         }
 
         // GET: LotViewModel/Details/5
@@ -169,9 +177,9 @@ namespace AuctionPlanet.WebPresentation.Controllers
             }
             catch (UnavailableServiceActionException exception)
             {
-                
+                ViewBag.FailureMessage = exception.Message;
+                return View("UnavailableOperation");
             }
-            
 
             return RedirectToAction("Index");
         }

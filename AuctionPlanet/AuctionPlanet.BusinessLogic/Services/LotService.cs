@@ -65,6 +65,11 @@ namespace AuctionPlanet.BusinessLogic.Services
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Sold));
         }
 
+        public IEnumerable<LotInfo> GetExpiredLots()
+        {
+            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Expired));
+        }
+
         public void BidOnALot(Guid id, decimal newPrice, string newBidder)
         {
             Lot lot = _database.Lots.Get(id);
@@ -83,14 +88,23 @@ namespace AuctionPlanet.BusinessLogic.Services
         public void DisposeOfExpiredLots()
         {
             IEnumerable<Lot> lots = _database.Lots.Find(lot => lot.Status == LotStatus.Available);
+
+            foreach (Lot lot in lots)
+            {
+                if (lot.StartTime != null && lot.StartTime.Value.AddTicks(lot.Duration) > DateTime.Now)
+                {
+                    lot.Status = string.IsNullOrEmpty(lot.CurrentBidder) ? LotStatus.Expired : LotStatus.Sold;
+                    _database.Lots.Update(lot);
+                }
+            }
+
+            _database.Save();
         }
 
         public IEnumerable<LotInfo> SearchLotInfos(string searchQuery)
         {
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Available && lot.Title.Contains(searchQuery)));
         }
-
-
 
         public void Dispose()
         {

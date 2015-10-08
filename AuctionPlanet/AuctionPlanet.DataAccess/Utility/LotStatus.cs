@@ -4,6 +4,7 @@
     {
         PendingApproval,
         Available,
-        Sold
+        Sold,
+        Expired
     }
 }
