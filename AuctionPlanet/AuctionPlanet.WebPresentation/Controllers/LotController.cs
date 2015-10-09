@@ -203,11 +203,19 @@ namespace AuctionPlanet.WebPresentation.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            _lotService.DisposeOfExpiredLots();
+            LotInfo lotInfo = _lotService.GetLotInfo(id.Value);
+
+            if (lotInfo.Status != LotStatus.Available)
+            {
+                return RedirectToAction("Details", new {id = id});
+            }
+
             BidViewModel bidViewModel = new BidViewModel
             {
                 LotId = id.Value,
                 NewBidder = User.Identity.Name,
-                LotTitle = _lotService.GetLotInfo(id.Value).Title
+                LotTitle = lotInfo.Title
             };
 
             return View("SpecifyBid", bidViewModel);
@@ -232,6 +240,12 @@ namespace AuctionPlanet.WebPresentation.Controllers
             }
 
             return View(bidViewModel);
+        }
+
+        public ActionResult Search(string searchCriteria)
+        {
+            _lotService.DisposeOfExpiredLots();
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.SearchLotInfos(searchCriteria)));
         }
 
         protected override void Dispose(bool disposing)

@@ -110,7 +110,13 @@
                 @Html.ActionLink("Approve", "Approve", new { id = Model.Id })
             </li>
         }
-        <li>@Html.ActionLink("Bid", "Bid", new { id = Model.Id })</li>
+        @if (Model.Status == LotStatus.Available)
+        {
+            <li>
+                @Html.ActionLink("Bid", "Bid", new {id = Model.Id})
+            </li>
+        }
+        
         <li>@Html.ActionLink("Back to List", "Index")</li>
     </ul>
 </p>

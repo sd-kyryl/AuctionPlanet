@@ -6,9 +6,24 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@using (Html.BeginForm("Search", "Lot"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-inline" style="border: 5px solid white;">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="form-group">
+            @Html.Label("", "Find by name:", new {@class = "control-label"})
+        </div>
+        <div class="form-group">
+            @Html.TextBox("searchCriteria", "", new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -75,3 +90,6 @@
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
