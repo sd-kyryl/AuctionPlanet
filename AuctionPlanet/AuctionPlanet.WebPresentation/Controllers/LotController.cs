@@ -37,17 +37,29 @@ namespace AuctionPlanet.WebPresentation.Controllers
             return View(Map<IEnumerable<LotViewModel>>(_lotService.GetPendingLots()));
         }
 
+        public ActionResult CurrentlyHeldLots()
+        {
+            _lotService.DisposeOfExpiredLots();
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetCurrentlyHeldLots(User.Identity.Name)));
+        }
+
+        public ActionResult BoughtLots()
+        {
+            _lotService.DisposeOfExpiredLots();
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetBoughtLots(User.Identity.Name)));
+        }
+
         public ActionResult SoldLots()
         {
             if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
-
+            _lotService.DisposeOfExpiredLots();
             return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetSoldLots()));
         }
 
         public ActionResult ExpiredLots()
         {
             if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
-
+            _lotService.DisposeOfExpiredLots();
             return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetExpiredLots()));
         }
 
@@ -194,14 +206,15 @@ namespace AuctionPlanet.WebPresentation.Controllers
             BidViewModel bidViewModel = new BidViewModel
             {
                 LotId = id.Value,
-                NewBidder = User.Identity.Name
+                NewBidder = User.Identity.Name,
+                LotTitle = _lotService.GetLotInfo(id.Value).Title
             };
 
-            return View(bidViewModel);
+            return View("SpecifyBid", bidViewModel);
         }
-
+        
         [HttpPost]
-        public ActionResult Bid(BidViewModel bidViewModel)
+        public ActionResult SpecifyBid(BidViewModel bidViewModel)
         {
             if (ModelState.IsValid)
             {

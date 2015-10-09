@@ -248,9 +248,9 @@
     <Content Include="Views\Lot\Edit.cshtml" />
     <Content Include="Views\Lot\Index.cshtml" />
     <Content Include="Views\Shared\UnauthorizedAccess.cshtml" />
-    <Content Include="Views\Lot\Bid.cshtml" />
     <Content Include="Views\Lot\PendingLots.cshtml" />
     <Content Include="Views\Shared\UnavailableOperation.cshtml" />
+    <Content Include="Views\Lot\SpecifyBid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

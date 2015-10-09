@@ -13,6 +13,8 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
         IEnumerable<LotInfo> GetExpiredLots();
         IEnumerable<LotInfo> GetSoldLots();
         IEnumerable<LotInfo> SearchLotInfos(string searchQuery);
+        IEnumerable<LotInfo> GetCurrentlyHeldLots(string userName);
+        IEnumerable<LotInfo> GetBoughtLots(string userName);
 
         void CreateLot(LotInfo lotInfo);
         void ApproveALot(Guid id);

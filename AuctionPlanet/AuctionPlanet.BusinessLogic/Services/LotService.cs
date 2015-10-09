@@ -18,6 +18,16 @@ namespace AuctionPlanet.BusinessLogic.Services
             _database = unitOfWork;
         }
 
+        public IEnumerable<LotInfo> GetBoughtLots(string userName)
+        {
+            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => string.Equals(lot.CurrentBidder, userName) && lot.Status == LotStatus.Sold));
+        }
+
+        public IEnumerable<LotInfo> GetCurrentlyHeldLots(string userName)
+        {
+            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => string.Equals(lot.CurrentBidder, userName) && lot.Status == LotStatus.Available));
+        }
+
         public void CreateLot(LotInfo lotInfo)
         {
             _database.Lots.Create(Map<Lot>(lotInfo));
@@ -91,7 +101,7 @@ namespace AuctionPlanet.BusinessLogic.Services
 
             foreach (Lot lot in lots)
             {
-                if (lot.StartTime != null && lot.StartTime.Value.AddTicks(lot.Duration) > DateTime.Now)
+                if (lot.StartTime != null && (lot.StartTime.Value.AddTicks(lot.Duration) - DateTime.Now).Ticks < 0L)
                 {
                     lot.Status = string.IsNullOrEmpty(lot.CurrentBidder) ? LotStatus.Expired : LotStatus.Sold;
                     _database.Lots.Update(lot);
@@ -105,6 +115,8 @@ namespace AuctionPlanet.BusinessLogic.Services
         {
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Available && lot.Title.Contains(searchQuery)));
         }
+
+
 
         public void Dispose()
         {

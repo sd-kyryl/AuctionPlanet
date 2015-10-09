@@ -38,9 +38,21 @@
         <li>
             @Html.ActionLink("View pending lots", "PendingLots", "Lot")
         </li>
+        <li>
+            @Html.ActionLink("View expired lots", "ExpiredLots", "Lot")
+        </li>
+        <li>
+            @Html.ActionLink("View sold lots", "SoldLots", "Lot")
+        </li>
     }
     <li>
-        @Html.ActionLink("View the lots", "Index", "Lot")
+        @Html.ActionLink("View available lots", "Index", "Lot")
+    </li>
+    <li>
+        @Html.ActionLink("View currently held lots", "CurrentlyHeldLots", "Lot")
+    </li>
+    <li>
+        @Html.ActionLink("View bought lots", "BoughtLots", "Lot")
     </li>
     <li>
         @Html.ActionLink("Create a lot", "Create", "Lot")
