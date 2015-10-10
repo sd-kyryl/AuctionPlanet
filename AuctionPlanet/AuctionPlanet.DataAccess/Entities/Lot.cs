@@ -11,8 +11,6 @@ namespace AuctionPlanet.DataAccess.Entities
 
         public string Description { get; set; }
 
-        public string ImageUrl { get; set; }
-
         public DateTime? StartTime { get; set; }
 
         public long Duration { get; set; }
@@ -26,5 +24,7 @@ namespace AuctionPlanet.DataAccess.Entities
         public string CurrentBidder { get; set; }
 
         public LotStatus Status { get; set; }
+
+        public virtual LotImage Image { get; set; }
     }
 }

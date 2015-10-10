@@ -18,6 +18,7 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
 
         void CreateLot(LotInfo lotInfo);
         void ApproveALot(Guid id);
+        void RenewTheLot(Guid id);
         void BidOnALot(Guid id, decimal newPrice, string newBidder);
         void DisposeOfExpiredLots();
         void Dispose();

@@ -10,8 +10,13 @@
 <div>
     <h4>LotViewModel</h4>
     <hr/>
-    <img alt="@Model.Title" src="@Model.ImageUrl" />
     <dl class="dl-horizontal">
+        <dt>
+            Image
+        </dt>
+        <dd>
+            <img src="..\File?id=@Model.Id" alt="@Model.Title"/>
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -106,9 +111,19 @@
     <ul>
         @if (User.IsInRole("admin") && Model.Status == LotStatus.PendingApproval)
         {
-            <li>
-                @Html.ActionLink("Approve", "Approve", new { id = Model.Id })
-            </li>
+            if (Model.Status == LotStatus.PendingApproval)
+            {
+                <li>
+                    @Html.ActionLink("Approve", "Approve", new { id = Model.Id })
+                </li>
+            }
+
+            if (Model.Status == LotStatus.Expired)
+            {
+                <li>
+                    @Html.ActionLink("Renew", "Renew", new { id = Model.Id })
+                </li>
+            }
         }
         @if (Model.Status == LotStatus.Available)
         {

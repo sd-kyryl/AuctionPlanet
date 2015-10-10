@@ -49,7 +49,6 @@ namespace AuctionPlanet.Tests
                     CurrentPrice = 70M,
                     Description = "",
                     Duration = 3000000,
-                    ImageUrl = null,
                     OriginalOwner = "Kyryl Shestakov",
                     StartPrice = 70M,
                     StartTime = null,

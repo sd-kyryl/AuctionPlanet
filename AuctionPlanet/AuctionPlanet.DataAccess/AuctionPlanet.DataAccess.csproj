@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Entities\AuctionUser.cs" />
     <Compile Include="Entities\Lot.cs" />
+    <Compile Include="Entities\LotImage.cs" />
     <Compile Include="Identity\ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="Migrations\201510031402496_Initial.cs" />
@@ -89,6 +90,14 @@
     <Compile Include="Migrations\201510081707252_RemovedAuctionUsersTable.Designer.cs">
       <DependentUpon>201510081707252_RemovedAuctionUsersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510101556353_ImageData.cs" />
+    <Compile Include="Migrations\201510101556353_ImageData.Designer.cs">
+      <DependentUpon>201510101556353_ImageData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510101839419_SeparatedImagesFromLots.cs" />
+    <Compile Include="Migrations\201510101839419_SeparatedImagesFromLots.Designer.cs">
+      <DependentUpon>201510101839419_SeparatedImagesFromLots.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\LotStatus.cs" />
@@ -118,6 +127,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510081707252_RemovedAuctionUsersTable.resx">
       <DependentUpon>201510081707252_RemovedAuctionUsersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510101556353_ImageData.resx">
+      <DependentUpon>201510101556353_ImageData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510101839419_SeparatedImagesFromLots.resx">
+      <DependentUpon>201510101839419_SeparatedImagesFromLots.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

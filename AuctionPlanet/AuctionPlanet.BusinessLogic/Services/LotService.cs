@@ -59,6 +59,21 @@ namespace AuctionPlanet.BusinessLogic.Services
             _database.Save();
         }
 
+        public void RenewTheLot(Guid id)
+        {
+            Lot lot = _database.Lots.Get(id);
+
+            if (lot.Status != LotStatus.Expired)
+            {
+                throw new UnavailableServiceActionException();
+            }
+
+            lot.StartTime = DateTime.Now;
+            lot.Status = LotStatus.Available;
+            _database.Lots.Update(lot);
+            _database.Save();
+        }
+
         public IEnumerable<LotInfo> GetPendingLots()
         {
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.PendingApproval));

@@ -1,4 +1,5 @@
 ﻿using System;
+using AuctionPlanet.DataAccess.Entities;
 using AuctionPlanet.DataAccess.Utility;
 
 namespace AuctionPlanet.BusinessLogic.DataTransferObjects
@@ -10,8 +11,6 @@ namespace AuctionPlanet.BusinessLogic.DataTransferObjects
         public string Title { get; set; }
 
         public string Description { get; set; }
-
-        public string ImageUrl { get; set; }
 
         public DateTime? StartTime { get; set; }
 
@@ -26,5 +25,7 @@ namespace AuctionPlanet.BusinessLogic.DataTransferObjects
         public string CurrentBidder { get; set; }
 
         public LotStatus Status { get; set; }
+
+        public virtual LotImage Image { get; set; }
     }
 }

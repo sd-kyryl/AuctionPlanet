@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AuctionPlanet.BusinessLogic.DataTransferObjects;
 using AuctionPlanet.BusinessLogic.Exceptions;
 using AuctionPlanet.BusinessLogic.Interfaces;
 using AuctionPlanet.BusinessLogic.Repositories;
 using AuctionPlanet.BusinessLogic.Services;
+using AuctionPlanet.DataAccess.Entities;
 using AuctionPlanet.DataAccess.Utility;
 using AuctionPlanet.WebPresentation.Models;
 using static AutoMapper.Mapper;
@@ -17,6 +20,17 @@ namespace AuctionPlanet.WebPresentation.Controllers
     public class LotController : Controller
     {
         private readonly ILotService _lotService;
+
+        /*public static List<string> ExtensionList = new List<string>
+        {
+            "jpg",
+            "jpeg",
+            "gif",
+            "png",
+            "bmp",
+            "tif",
+            "tiff"
+        };*/
 
         public LotController()
         {
@@ -91,17 +105,39 @@ namespace AuctionPlanet.WebPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,ImageUrl,StartTime,Duration,StartPrice,CurrentPrice,OriginalOwner,CurrentBidder,Status")] LotViewModel lotViewModel)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,ImageUrl,StartTime,Duration,StartPrice,CurrentPrice,OriginalOwner,CurrentBidder,Status")] LotViewModel lotViewModel, HttpPostedFileBase upload)
         {
+            if (upload != null && !upload.ContentType.StartsWith("image"))
+            {
+                ModelState.AddModelError("", "Non-image file was chosen");
+                return View(lotViewModel);
+            }
+                
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    byte[] content;
+
+                    using (var reader = new BinaryReader(upload.InputStream))
+                    {
+                        content = reader.ReadBytes(upload.ContentLength);
+                    }
+
+                    LotImage lotImage = new LotImage
+                    {
+                        Id = Guid.NewGuid(),
+                        ImageType = upload.ContentType,
+                        ImageData = content
+                    };
+
+                    lotViewModel.Image = lotImage;
+                }
                 lotViewModel.Id = Guid.NewGuid();
                 lotViewModel.CurrentPrice = lotViewModel.StartPrice;
                 lotViewModel.OriginalOwner = User.Identity.Name;
                 lotViewModel.Status = LotStatus.PendingApproval;
                 _lotService.CreateLot(Map<LotInfo>(lotViewModel));
-                //_db.LotViewModels.Add(lotViewModel);
-                //_db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -196,6 +232,28 @@ namespace AuctionPlanet.WebPresentation.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Renew(Guid? id)
+        {
+            if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            try
+            {
+                _lotService.RenewTheLot(id.Value);
+            }
+            catch (UnavailableServiceActionException exception)
+            {
+                ViewBag.FailureMessage = exception.Message;
+                return View("UnavailableOperation");
+            }
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Bid(Guid? id)
         {
             if (id == null)
@@ -246,6 +304,20 @@ namespace AuctionPlanet.WebPresentation.Controllers
         {
             _lotService.DisposeOfExpiredLots();
             return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.SearchLotInfos(searchCriteria)));
+        }
+
+        public ActionResult File(Guid? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var lot = _lotService.GetLotInfo(id.Value);
+
+            if (lot == null) return HttpNotFound();
+
+            return File(lot.Image.ImageData, lot.Image.ImageType);
         }
 
         protected override void Dispose(bool disposing)
