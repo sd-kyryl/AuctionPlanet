@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjects\LotInfo.cs" />
+    <Compile Include="Exceptions\UnacceptablePriceException.cs" />
     <Compile Include="Exceptions\UnavailableServiceActionException.cs" />
     <Compile Include="Interfaces\ILotService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

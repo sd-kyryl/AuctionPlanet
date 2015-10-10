@@ -7,6 +7,7 @@ namespace AuctionPlanet.WebPresentation.Models
     {
         public Guid LotId { get; set; }
         public string LotTitle { get; set; }
+
         [Required]
         public decimal NewPrice { get; set; }
         public string NewBidder { get; set; }

@@ -105,11 +105,30 @@ namespace AuctionPlanet.WebPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,ImageUrl,StartTime,Duration,StartPrice,CurrentPrice,OriginalOwner,CurrentBidder,Status")] LotViewModel lotViewModel, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,StartTime,Duration,StartPrice,CurrentPrice,OriginalOwner,CurrentBidder,Status,LotImage")] LotViewModel lotViewModel, HttpPostedFileBase upload)
         {
+            bool isValid = true;
+
             if (upload != null && !upload.ContentType.StartsWith("image"))
             {
                 ModelState.AddModelError("", "Non-image file was chosen");
+                isValid = false;
+            }
+
+            if (lotViewModel.StartPrice <= decimal.Zero)
+            {
+                ModelState.AddModelError("", "The price must be positive");
+                isValid = false;
+            }
+
+            if (lotViewModel.Duration.Ticks < 0L)
+            {
+                ModelState.AddModelError("", "Duration must be positive");
+                isValid = false;
+            }
+
+            if (!isValid)
+            {
                 return View(lotViewModel);
             }
                 
@@ -287,14 +306,16 @@ namespace AuctionPlanet.WebPresentation.Controllers
                 try
                 {
                     _lotService.BidOnALot(bidViewModel.LotId, bidViewModel.NewPrice, bidViewModel.NewBidder);
+                    return RedirectToAction("Index");
                 }
                 catch (UnavailableServiceActionException exception)
                 {
                     ViewBag.FailureMessage = exception.Message;
-                    return View(bidViewModel);
                 }
-                
-                return RedirectToAction("Index");
+                catch (UnacceptablePriceException exception)
+                {
+                    ModelState.AddModelError("", exception.Message);
+                }
             }
 
             return View(bidViewModel);

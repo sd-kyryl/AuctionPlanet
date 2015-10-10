@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using AuctionPlanet.DataAccess.Entities;
 using AuctionPlanet.DataAccess.Utility;
 
@@ -8,8 +9,10 @@ namespace AuctionPlanet.WebPresentation.Models
     {
         public Guid Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         public DateTime? StartTime { get; set; }

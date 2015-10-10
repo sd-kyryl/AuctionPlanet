@@ -104,6 +104,11 @@ namespace AuctionPlanet.BusinessLogic.Services
                 throw new UnavailableServiceActionException();
             }
 
+            if (lot.CurrentPrice > newPrice)
+            {
+                throw new UnacceptablePriceException();
+            }
+
             lot.CurrentPrice = newPrice;
             lot.CurrentBidder = newBidder;
             _database.Lots.Update(lot);
