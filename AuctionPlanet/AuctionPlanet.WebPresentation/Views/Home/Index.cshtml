@@ -44,7 +44,9 @@
         <li>
             @Html.ActionLink("View sold lots", "SoldLots", "Lot")
         </li>
-
+        <li>
+            @Html.ActionLink("View user information", "Users", "Account")
+        </li>
     }
 </ul>
 <hr/>
@@ -53,13 +55,13 @@
         @Html.ActionLink("Available lots", "Index", "Lot")
     </li>
     <li>
-        @Html.ActionLink("Currently held lots", "CurrentlyHeldLots", "Lot", User.Identity.Name, null)
+        @Html.ActionLink("Currently held lots", "CurrentlyHeldLots", "Lot", new { userName = User.Identity.Name }, null)
     </li>
     <li>
-        @Html.ActionLink("Bought lots", "BoughtLots", "Lot", User.Identity.Name, null)
+        @Html.ActionLink("Bought lots", "BoughtLots", "Lot", new {userName = User.Identity.Name}, null)
     </li>
     <li>
-        @Html.ActionLink("Created lots", "CreatedLots", "Lot", User.Identity.Name, null)
+        @Html.ActionLink("Created lots", "CreatedLots", "Lot", new { userName = User.Identity.Name }, null)
     </li>
 </ul>
 <hr/>

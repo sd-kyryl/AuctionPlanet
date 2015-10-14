@@ -295,7 +295,9 @@ namespace AuctionPlanet.WebPresentation.Controllers
             {
                 LotId = id.Value,
                 NewBidder = User.Identity.Name,
-                LotTitle = lotInfo.Title
+                LotTitle = lotInfo.Title,
+                CurrentBidder = lotInfo.CurrentBidder,
+                CurrentPrice = lotInfo.CurrentPrice
             };
 
             return View("SpecifyBid", bidViewModel);

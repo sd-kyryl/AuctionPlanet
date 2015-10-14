@@ -53,6 +53,14 @@ namespace AuctionPlanet.WebPresentation.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
+        public ActionResult Users()
+        {
+            var context = new ApplicationDbContext();
+
+            return View(context.Users);
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
