@@ -27,7 +27,7 @@
         <td>
             @Html.ActionLink("Created lots", "CreatedLots", "Lot", new { userName = item.UserName }, null) |
             @Html.ActionLink("Bought lots", "BoughtLots", "Lot", new { userName = item.UserName }, null) |
-            @Html.ActionLink("Currently held lots", "CurrentlyHeldLots", "Lot", new { userName = item.UserName }, null) |
+            @Html.ActionLink("Currently held lots", "CurrentlyHeldLots", "Lot", new { userName = item.UserName }, null)
             @*@if (!string.Equals(User.Identity.Name, item.UserName))
             {
                 @(item.BanFlag ? Html.ActionLink("Unblock", "UnblockUser", new { id = item.Id }) : Html.ActionLink("Block", "BlockUser", new { id = item.Id }))

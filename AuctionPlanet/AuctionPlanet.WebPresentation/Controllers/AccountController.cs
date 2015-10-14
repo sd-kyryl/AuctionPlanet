@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -55,82 +53,6 @@ namespace AuctionPlanet.WebPresentation.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
-        public ActionResult Users()
-        {
-            var context = new ApplicationDbContext();
-
-            return View(context.Users);
-        }
-
-        //[Authorize(Roles = "admin")]
-        //public ActionResult BlockUser(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    var context = new ApplicationDbContext();
-        //    var user = context.Users.Find(id.Value);
-
-        //    if (user == null)
-        //    {
-        //        return new HttpNotFoundResult();
-        //    }
-
-        //    user.BanFlag = true;
-        //    context.Entry(user).State = EntityState.Modified;
-        //    context.SaveChanges();
-
-        //    return RedirectToAction("Users");
-        //}
-
-        //[Authorize(Roles = "admin")]
-        //public ActionResult UnblockUser(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    var context = new ApplicationDbContext();
-        //    var user = context.Users.Find(id.Value);
-
-        //    if (user == null)
-        //    {
-        //        return new HttpNotFoundResult();
-        //    }
-
-        //    user.BanFlag = false;
-        //    context.Entry(user).State = EntityState.Modified;
-        //    context.SaveChanges();
-
-        //    return RedirectToAction("Users");
-        //}
-
-        //[Authorize(Roles = "admin")]
-        //public ActionResult DeleteUser(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    var context = new ApplicationDbContext();
-        //    var user = context.Users.Find(id.Value);
-
-        //    if (user == null)
-        //    {
-        //        return new HttpNotFoundResult();
-        //    }
-
-        //    context.Users.Remove(user);
-        //    context.SaveChanges();
-
-        //    return RedirectToAction("Users");
-        //}
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -150,14 +72,6 @@ namespace AuctionPlanet.WebPresentation.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
-            }
-
-            var context = new ApplicationDbContext();
-            var user = context.Users.SingleOrDefault(u => string.Equals(u.UserName, model.UserName));
-
-            if (user != null && user.BanFlag)
-            {
-                return View("UnauthorizedAccess");
             }
 
             // This doesn't count login failures towards account lockout
