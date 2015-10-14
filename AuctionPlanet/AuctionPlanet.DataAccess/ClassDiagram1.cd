@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AuctionPlanet.DataAccess.Entities.Lot">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAiCEAAAAAAAACAIAIAABAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\Lot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AuctionPlanet.DataAccess.Entities.LotImage">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\LotImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
