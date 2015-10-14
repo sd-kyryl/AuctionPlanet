@@ -17,6 +17,7 @@ namespace AuctionPlanet.DataAccess.Identity
         {
             return new ApplicationDbContext();
         }
+        
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

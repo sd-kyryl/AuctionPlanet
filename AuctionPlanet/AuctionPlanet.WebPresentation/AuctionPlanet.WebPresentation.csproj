@@ -251,6 +251,7 @@
     <Content Include="Views\Lot\PendingLots.cshtml" />
     <Content Include="Views\Shared\UnavailableOperation.cshtml" />
     <Content Include="Views\Lot\SpecifyBid.cshtml" />
+    <Content Include="Views\Account\Users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

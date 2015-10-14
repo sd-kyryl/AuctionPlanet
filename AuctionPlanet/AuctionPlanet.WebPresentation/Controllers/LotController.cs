@@ -51,16 +51,21 @@ namespace AuctionPlanet.WebPresentation.Controllers
             return View(Map<IEnumerable<LotViewModel>>(_lotService.GetPendingLots()));
         }
 
-        public ActionResult CurrentlyHeldLots()
+        public ActionResult CreatedLots(string userName)
         {
-            _lotService.DisposeOfExpiredLots();
-            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetCurrentlyHeldLots(User.Identity.Name)));
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetCreatedLots(userName)));
         }
 
-        public ActionResult BoughtLots()
+        public ActionResult CurrentlyHeldLots(string userName)
         {
             _lotService.DisposeOfExpiredLots();
-            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetBoughtLots(User.Identity.Name)));
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetCurrentlyHeldLots(userName)));
+        }
+
+        public ActionResult BoughtLots(string userName)
+        {
+            _lotService.DisposeOfExpiredLots();
+            return View("Index", Map<IEnumerable<LotViewModel>>(_lotService.GetBoughtLots(userName)));
         }
 
         public ActionResult SoldLots()

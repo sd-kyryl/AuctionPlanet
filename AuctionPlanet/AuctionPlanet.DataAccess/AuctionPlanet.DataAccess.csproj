@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201510101839419_SeparatedImagesFromLots.Designer.cs">
       <DependentUpon>201510101839419_SeparatedImagesFromLots.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510141449101_BanFlagForUsers.cs" />
+    <Compile Include="Migrations\201510141449101_BanFlagForUsers.Designer.cs">
+      <DependentUpon>201510141449101_BanFlagForUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\LotStatus.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510101839419_SeparatedImagesFromLots.resx">
       <DependentUpon>201510101839419_SeparatedImagesFromLots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510141449101_BanFlagForUsers.resx">
+      <DependentUpon>201510141449101_BanFlagForUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

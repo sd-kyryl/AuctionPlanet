@@ -18,6 +18,11 @@ namespace AuctionPlanet.BusinessLogic.Services
             _database = unitOfWork;
         }
 
+        public IEnumerable<LotInfo> GetCreatedLots(string userName)
+        {
+            return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => string.Equals(lot.OriginalOwner, userName)));
+        }
+
         public IEnumerable<LotInfo> GetBoughtLots(string userName)
         {
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => string.Equals(lot.CurrentBidder, userName) && lot.Status == LotStatus.Sold));
