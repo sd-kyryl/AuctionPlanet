@@ -21,6 +21,7 @@ namespace AuctionPlanet.BusinessLogic.Interfaces
         void RenewTheLot(Guid id);
         void BidOnALot(Guid id, decimal newPrice, string newBidder);
         void DisposeOfExpiredLots();
+        void DeleteLot(Guid id);
         void Dispose();
     }
 }

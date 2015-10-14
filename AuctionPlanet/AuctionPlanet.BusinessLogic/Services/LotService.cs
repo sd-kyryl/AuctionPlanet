@@ -136,6 +136,12 @@ namespace AuctionPlanet.BusinessLogic.Services
             return Map<IEnumerable<LotInfo>>(_database.Lots.Find(lot => lot.Status == LotStatus.Available && lot.Title.Contains(searchQuery)));
         }
 
+        public void DeleteLot(Guid id)
+        {
+            _database.Lots.Delete(id);
+            _database.Save();
+        }
+
         public void Dispose()
         {
             _database.Dispose();

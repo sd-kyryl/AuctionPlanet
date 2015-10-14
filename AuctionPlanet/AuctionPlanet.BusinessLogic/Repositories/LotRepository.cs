@@ -42,7 +42,7 @@ namespace AuctionPlanet.BusinessLogic.Repositories
             _context.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             Lot lot = _context.Lots.Find(id);
 

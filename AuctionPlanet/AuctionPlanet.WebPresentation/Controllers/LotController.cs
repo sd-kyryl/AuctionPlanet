@@ -185,7 +185,7 @@ namespace AuctionPlanet.WebPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,ImageUrl,StartTime,Duration,StartPrice,CurrentPrice,OriginalOwner,CurrentBidder,Status")] LotViewModel lotViewModel)
+        public ActionResult Edit(LotViewModel lotViewModel)
         {
             if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
 
@@ -223,9 +223,7 @@ namespace AuctionPlanet.WebPresentation.Controllers
         {
             if (!User.IsInRole("admin")) return View("UnauthorizedAccess");
 
-            //LotViewModel lotViewModel = _db.LotViewModels.Find(id);
-            //_db.LotViewModels.Remove(lotViewModel);
-            //_db.SaveChanges();
+            _lotService.DeleteLot(id);
             return RedirectToAction("Index");
         }
 
@@ -337,6 +335,8 @@ namespace AuctionPlanet.WebPresentation.Controllers
             var lot = _lotService.GetLotInfo(id.Value);
 
             if (lot == null) return HttpNotFound();
+
+            if (lot.Image == null) return File(new byte[0], "image\\jpeg");
 
             return File(lot.Image.ImageData, lot.Image.ImageType);
         }

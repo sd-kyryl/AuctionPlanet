@@ -12,6 +12,12 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            Image
+        </dt>
+        <dd>
+            <img src="..\File?id=@Model.Id" alt="@Model.Title" />
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
@@ -41,6 +47,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            Time left
+        </dt>
+
+        <dd>
+            @{
+                string timeLeft = "";
+
+                if (Model.StartTime != null)
+                {
+                    timeLeft = (Model.StartTime.Value.Add(Model.Duration) - DateTime.Now).ToString();
+                }
+            }
+            @Html.DisplayFor(modelItem => timeLeft)
         </dd>
 
         <dt>

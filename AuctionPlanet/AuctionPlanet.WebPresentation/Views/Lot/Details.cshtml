@@ -109,22 +109,29 @@
 </div>
 <p>
     <ul>
-        @if (User.IsInRole("admin") && Model.Status == LotStatus.PendingApproval)
+        @if (User.IsInRole("admin"))
         {
             if (Model.Status == LotStatus.PendingApproval)
             {
                 <li>
-                    @Html.ActionLink("Approve", "Approve", new { id = Model.Id })
+                    @Html.ActionLink("Approve", "Approve", new {id = Model.Id})
                 </li>
             }
 
             if (Model.Status == LotStatus.Expired)
             {
                 <li>
-                    @Html.ActionLink("Renew", "Renew", new { id = Model.Id })
+                    @Html.ActionLink("Renew", "Renew", new {id = Model.Id})
                 </li>
             }
+
+            <li>
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+            </li>
         }
+    </ul>
+    <hr />
+    <ul>
         @if (Model.Status == LotStatus.Available)
         {
             <li>
