@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AuctionUser.cs" />
     <Compile Include="Entities\Lot.cs" />
     <Compile Include="Entities\LotImage.cs" />
     <Compile Include="Identity\ApplicationDbContext.cs" />
