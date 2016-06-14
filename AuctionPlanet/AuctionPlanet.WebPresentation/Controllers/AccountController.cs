@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -56,9 +57,14 @@ namespace AuctionPlanet.WebPresentation.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Users()
         {
-            var context = new ApplicationDbContext();
+            IEnumerable<ApplicationUser> users;
 
-            return View(context.Users);
+            using (var context = new ApplicationDbContext())
+            {
+                users = context.Users.ToList();
+            }
+
+            return View(users);
         }
 
         //

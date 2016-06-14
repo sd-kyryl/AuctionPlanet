@@ -11,7 +11,7 @@ namespace AuctionPlanet.WebPresentation.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Auction Planet Description";
 
             return View();
         }
