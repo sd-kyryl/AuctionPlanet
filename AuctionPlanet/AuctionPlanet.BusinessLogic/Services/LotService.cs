@@ -109,7 +109,7 @@ namespace AuctionPlanet.BusinessLogic.Services
                 throw new UnavailableServiceActionException();
             }
 
-            if (lot.CurrentPrice > newPrice)
+            if (lot.CurrentPrice >= newPrice)
             {
                 throw new UnacceptablePriceException();
             }
